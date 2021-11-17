@@ -103,7 +103,7 @@
     state: present
     virtualenv: "{{ airflow_app_home }}"
     virtualenv_python: "python{{ airflow_python_version | default(omit) }}"
-    extra_args: --no-cache-dir
+    extra_args: --no-cache-dir --constraint https://raw.githubusercontent.com/apache/airflow/constraints-2.1.1/constraints-3.8.txt
   register: airflow_install
   environment:
     SLUGIFY_USES_TEXT_UNIDECODE: "yes"
